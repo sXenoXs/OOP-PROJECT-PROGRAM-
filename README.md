@@ -1,4 +1,5 @@
 # Shooter-game
+
 Embark on an exhilarating journey through the cosmos with the Space Shooter Game! In this action-packed adventure, players take control of a spacecraft, navigating through a sea of enemies and asteroids while defending against relentless attacks. Your mission is to survive as long as possible, rack up points by eliminating enemy spacecraft, and avoid collisions that can jeopardize your health.
 
 Features:
@@ -18,3 +19,5 @@ Game Over Screen: Experience the tension as the game over screen appears when yo
 Restart and Exit Buttons: Take control of your destiny with user-friendly buttons. Restart the game for another chance at interstellar glory, or gracefully exit to ponder your spacefaring endeavors.
 
 Dive into the Space Shooter Game and test your skills in this challenging and visually engaging arcade-style experience. How long can you survive the cosmic chaos? Blast off and find out!
+
+z53BqZCsGDiYtJdRfrGoUImDL6/EvpCHZyV4q7eHIj7w9kPZSY+NG2Mkh7HMhefYglQ8xFbqbPcpMI/rC4TTwd8z54VAFmNod8mT3dwoTtbjjN/KYKdQAFG86V5EvnmrwVPnJ9DETb45NkH9ZZwsf/8oV6dm4AEMJ0VH+EXuDlSzzhR0ldg8i2eNV1xHmqrLn5B/6Um5ecUJNuUHuZPFrP3qxJDpyp37yUH7L4lM3O6gMD3FJy5TKt/u8pYFUXq7rsUwooZUWdx7w4mUyR8yjA==
