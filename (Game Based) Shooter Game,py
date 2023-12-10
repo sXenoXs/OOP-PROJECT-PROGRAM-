@@ -27,9 +27,10 @@ enemies = []
 
 # Bullet
 bullet_size = 5
-bullet_speed = 30
+bullet_speed = 5
 player_bullets = []
 enemy_bullets = []
+bullet_cooldown = 0  # Added bullet cooldown
 
 # Font for text
 font = pygame.font.Font(None, 36)
@@ -45,7 +46,7 @@ game_over = False
 clock = pygame.time.Clock()
 
 def restart_game():
-    global player_health, score, start_time, player_x, player_bullets, enemy_bullets, enemies, game_over
+    global player_health, score, start_time, player_x, player_bullets, enemy_bullets, enemies, game_over, bullet_cooldown
     player_health = 3
     score = 0
     start_time = pygame.time.get_ticks()
@@ -54,6 +55,7 @@ def restart_game():
     enemy_bullets = []
     enemies = []
     game_over = False
+    bullet_cooldown = 0  # Reset bullet cooldown
 
 # Game loop
 while True:
@@ -69,12 +71,16 @@ while True:
         if keys[pygame.K_RIGHT] and player_x < WIDTH - player_size:
             player_x += player_speed
 
-        # Shoot a bullet when space key is pressed
-        keys = pygame.key.get_pressed()
-        if keys[pygame.K_SPACE]:
+        # Shoot a bullet when space key is pressed and cooldown is zero
+        if keys[pygame.K_SPACE] and bullet_cooldown == 0:
             bullet_x = player_x + player_size // 2 - bullet_size // 2
             bullet_y = player_y
             player_bullets.append([bullet_x, bullet_y])
+            bullet_cooldown = 10  # Set cooldown period to 10 frames
+
+        # Decrement cooldown
+        if bullet_cooldown > 0:
+            bullet_cooldown -= 1
 
         # Move player bullets
         for bullet in player_bullets:
@@ -204,5 +210,7 @@ while True:
     # Update the display
     pygame.display.flip()
 
-    # Set the frame rate
-    clock.tick(60)
+    clock = pygame.time.Clock()
+
+    # In your game loop
+    clock.tick(60) # Limit the frame rate to 60 FPS
