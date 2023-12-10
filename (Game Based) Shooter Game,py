@@ -2,6 +2,7 @@ import pygame
 import sys
 import random
 
+
 # Initialize Pygame
 pygame.init()
 
@@ -45,6 +46,14 @@ game_over = False
 # Clock to control the frame rate
 clock = pygame.time.Clock()
 
+# Load player image
+player_image = pygame.image.load(r"C:\Users\Hopia\Documents\JAVA\Assets\space_ship_icon.png")  # Replace with the actual path to your player image
+player_image = pygame.transform.scale(player_image, (player_size, player_size))
+
+# Load enemy image
+enemy_image = pygame.image.load(r"C:\Users\Hopia\Documents\JAVA\Assets\alien_ship_icon.png")  # Replace with the actual path to your enemy image
+enemy_image = pygame.transform.scale(enemy_image, (enemy_size, enemy_size))
+
 def restart_game():
     global player_health, score, start_time, player_x, player_bullets, enemy_bullets, enemies, game_over, bullet_cooldown
     player_health = 3
@@ -56,6 +65,7 @@ def restart_game():
     enemies = []
     game_over = False
     bullet_cooldown = 0  # Reset bullet cooldown
+
 
 # Game loop
 while True:
@@ -153,11 +163,11 @@ while True:
 
     if not game_over:
         # Draw player
-        pygame.draw.rect(screen, WHITE, [player_x, player_y, player_size, player_size])
+        screen.blit(player_image, (player_x, player_y))
 
         # Draw enemies
         for enemy in enemies:
-            pygame.draw.rect(screen, WHITE, [enemy[0], enemy[1], enemy_size, enemy_size])
+            screen.blit(enemy_image, (enemy[0], enemy[1]))
 
         # Draw player bullets
         for bullet in player_bullets:
@@ -176,9 +186,18 @@ while True:
         timer_text = font.render("Time: " + str(elapsed_time) + "s", True, WHITE)
         screen.blit(timer_text, (WIDTH - 150, 10))
 
-        # Draw player health
-        health_text = font.render("Health: " + "❤" * player_health, True, WHITE)
-        screen.blit(health_text, (WIDTH // 2 - 50, 10))
+        # Load heart icon image
+        heart_icon = pygame.image.load(r"C:\Users\Hopia\Documents\JAVA\Assets\heart_icon.png") # Replace with the actual path to your image file
+        heart_icon = pygame.transform.scale(heart_icon, (20, 20)) # Adjust the size as needed
+
+        # Draw player health with heart icon
+        health_text = font.render("Health: ", True, WHITE)
+        screen.blit(health_text, (WIDTH // 2 - 140, 10))  # Adjust the position as needed
+
+        # Draw heart icons based on player_health
+        for i in range(player_health):
+            screen.blit(heart_icon, (WIDTH // 2 - 50 + i * 20, 13))
+
     else:
         # Draw game over text
         game_over_text = font.render("Game Over", True, WHITE)
