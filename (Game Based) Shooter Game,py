@@ -184,6 +184,14 @@ while True:
         game_over_text = font.render("Game Over", True, WHITE)
         screen.blit(game_over_text, (WIDTH // 2 - 70, HEIGHT // 2 - 50))
 
+        # Draw score on the upper left corner
+        score_text = font.render("Score: " + str(score), True, WHITE)
+        screen.blit(score_text, (10, 10))
+
+        # Draw timer on the upper right corner
+        timer_text = font.render("Time: " + str(elapsed_time) + "s", True, WHITE)
+        screen.blit(timer_text, (WIDTH - 150, 10))
+
         # Draw restart button
         restart_button = pygame.Rect(WIDTH // 2 - 70, HEIGHT // 2 + 20, 140, 50)
         pygame.draw.rect(screen, WHITE, restart_button)
