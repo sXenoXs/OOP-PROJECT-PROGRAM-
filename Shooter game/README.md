@@ -3,9 +3,11 @@
 Make sure to install a Python package that will allow for the import of Pygame.
 
 How to install pygame for Pycharm?
+
 https://www.youtube.com/watch?app=desktop&v=Ul7NYq6IFeI
 
 How to install pygame for vscode?
+
 https://www.youtube.com/watch?v=SUvY07IdD_4&t=30s   
 
    
